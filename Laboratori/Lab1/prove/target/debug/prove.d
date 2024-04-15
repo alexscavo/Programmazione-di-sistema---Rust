@@ -1,0 +1,1 @@
+C:\Users\Utente\Desktop\poli\materie\Programmazione\ di\ Sistema\Rust\Laboratori\Lab1\prove\target\debug\prove.exe: C:\Users\Utente\Desktop\poli\materie\Programmazione\ di\ Sistema\Rust\Laboratori\Lab1\prove\src\main.rs
