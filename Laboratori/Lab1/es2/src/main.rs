@@ -127,7 +127,10 @@ impl Board {
             }
         }
 
-        return Err(Error::Overlap);
+        let mut board = Board::new(&[1,2,3,4]);
+        board.data = data;
+
+        Ok(board)
 
     }
 
