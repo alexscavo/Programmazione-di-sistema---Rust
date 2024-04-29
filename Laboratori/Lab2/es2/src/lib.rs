@@ -28,6 +28,7 @@ pub mod solution {
         pub fn to_tuple(&self) -> (f64, f64) {
             (self.real, self.imag)
         }
+
     }
     
     impl Add for ComplexNumber {
@@ -54,6 +55,14 @@ pub mod solution {
         }
     }
 
+    impl Add for &ComplexNumber {
+        type Output = ComplexNumber;
+
+        fn add(self, rhs: &ComplexNumber) -> Self::Output {
+            ComplexNumber{real: self.real + rhs.real, imag: self.imag + rhs.imag}
+        }
+    }
+
     impl AddAssign for ComplexNumber {
 
         fn add_assign(&mut self, rhs: ComplexNumber) {
@@ -62,6 +71,26 @@ pub mod solution {
         }
 
     }
+
+    impl Default for ComplexNumber {
+
+        fn default() -> Self {
+            ComplexNumber{real: 0.0, imag: 0.0}
+        }
+    }
+
+    impl Into<f64> for ComplexNumber {
+
+        fn into(self) -> f64 {
+
+            if self.imag != 0.0 {
+                panic!("Errore")
+            }
+
+            self.real
+        }
+    }
+
 
 
 }

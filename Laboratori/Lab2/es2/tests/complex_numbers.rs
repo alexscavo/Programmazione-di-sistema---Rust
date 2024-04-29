@@ -1,4 +1,5 @@
 use es2::solution::ComplexNumber;
+use log::debug;
 
 // for this execise see https://doc.rust-lang.org/beta/std/primitive.f64.html
 // you can find examples for all the traits that must be implemented
@@ -63,28 +64,32 @@ pub fn test_add_with_reference() {
     assert_eq!(c.to_tuple(), (2.0, 4.0))
 }
 
-/*
 
 #[test]
 pub fn test_add_reference_with_reference() {
     // write yourself the test and adjust traits
-    assert!(true);
+    let a: ComplexNumber = ComplexNumber::new(1.0, 2.0);
+    let b: ComplexNumber = ComplexNumber::new(1.0, 2.0);
+
+    let c = &a + &b;
+
+    assert_eq!(c.to_tuple(), (2.0, 4.0));
 }
-*/
-/*
+
+
 
 #[test]
 pub fn test_enable_copy(){
     // why this code won't compile? Read carefully the error message
-    // what do we nee to do to make it work?
+    // what do we need to do to make it work?
     let a = ComplexNumber::new(1.0, 2.0);
 
-    let b = a + a;
+    let b = &a + &a;
 
     assert_eq!(b.to_tuple(), (2.0, 4.0));
 }
-*/
-/*
+
+
 
 #[test]
 pub fn test_default_values() {
@@ -96,8 +101,8 @@ pub fn test_default_values() {
         assert_eq!(el.to_tuple(), (0.0, 0.0));
     }
 }
-*/
-/*
+
+
 
 #[test]
 pub fn test_convert_into_real() {
@@ -107,6 +112,7 @@ pub fn test_convert_into_real() {
     assert_eq!(b, 1.0);
 
 }
+
 
 #[test]
 pub fn test_panic_when_impossible_to_convert_to_real() {
@@ -120,13 +126,20 @@ pub fn test_panic_when_impossible_to_convert_to_real() {
     assert!(result.is_err());
 }
 
+
 #[test]
 pub fn test_try_into_f64() {
     // write trait and a test for the Trait TryInto for converting into f64
     // the test must check both success and error conditions
-    assert!(true);
+    // Success case
+    let n1 = ComplexNumber { real: 5.0, imag: 0.0 };
+    let n2 = ComplexNumber { real: 5.0, imag: 6.0 };
+
+    assert_eq!(n1.try_into(), Ok(5.0));
+    assert_eq!(n2.try_into(), Err(0.0));
 }
 
+/*
 #[test]
 pub fn test_try_form_f64() {
     // write a trait allowing let complex = f64.into()
