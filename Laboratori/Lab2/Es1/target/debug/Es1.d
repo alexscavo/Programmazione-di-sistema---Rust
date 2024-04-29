@@ -1,0 +1,1 @@
+C:\Users\Utente\Desktop\poli\materie\Programmazione\ di\ Sistema\Rust\Laboratori\Lab2\Es1\target\debug\Es1.exe: C:\Users\Utente\Desktop\poli\materie\Programmazione\ di\ Sistema\Rust\Laboratori\Lab2\Es1\src\main.rs
