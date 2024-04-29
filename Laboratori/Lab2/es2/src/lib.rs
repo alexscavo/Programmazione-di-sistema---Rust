@@ -79,6 +79,7 @@ pub mod solution {
         }
     }
 
+    /*
     impl Into<f64> for ComplexNumber {
 
         fn into(self) -> f64 {
@@ -89,8 +90,19 @@ pub mod solution {
 
             self.real
         }
+    }*/
+
+    impl TryInto<f64> for ComplexNumber {
+
+        type Error = &'static str;
+
+        fn try_into(self) -> Result<f64, Self::Error> {
+            if self.imag != 0.0 {
+                return Err("Errore");
+            }
+
+            Ok(self.real)
+        }
     }
-
-
 
 }

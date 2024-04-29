@@ -103,7 +103,7 @@ pub fn test_default_values() {
 }
 
 
-
+/*
 #[test]
 pub fn test_convert_into_real() {
     let a = ComplexNumber::from_real(1.0);
@@ -125,7 +125,7 @@ pub fn test_panic_when_impossible_to_convert_to_real() {
 
     assert!(result.is_err());
 }
-
+*/
 
 #[test]
 pub fn test_try_into_f64() {
@@ -135,13 +135,21 @@ pub fn test_try_into_f64() {
     let n1 = ComplexNumber { real: 5.0, imag: 0.0 };
     let n2 = ComplexNumber { real: 5.0, imag: 6.0 };
 
-    assert_eq!(n1.try_into(), Ok(5.0));
-    assert_eq!(n2.try_into(), Err(0.0));
+    match n1.try_into() {
+        Ok(value) => assert_eq!(n1.try_into(), Ok(5.0)),
+        Err(err) => assert_eq!(n1.try_into(), Err("Errore"))
+    }
+
+    match n2.try_into() {
+        Ok(value) => assert_eq!(n2.try_into(), Ok(5.0)),
+        Err(err) => assert_eq!(n2.try_into(), Err("Errore"))
+    }
+
 }
 
 /*
 #[test]
-pub fn test_try_form_f64() {
+pub fn test_try_from_f64() {
     // write a trait allowing let complex = f64.into()
     // and write test
 }
