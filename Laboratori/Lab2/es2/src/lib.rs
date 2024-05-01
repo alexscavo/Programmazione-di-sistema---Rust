@@ -1,7 +1,12 @@
+use std::collections::VecDeque;
 
 pub mod solution {
+    use std::cmp::Ordering;
+    use std::hash::{Hash, Hasher};
     use std::ops::{Add, AddAssign};
 
+
+    #[derive(Copy, Clone, Debug, PartialEq)]
     pub struct ComplexNumber {
         pub real: f64,
         pub imag: f64
@@ -27,6 +32,10 @@ pub mod solution {
 
         pub fn to_tuple(&self) -> (f64, f64) {
             (self.real, self.imag)
+        }
+
+        pub fn modulus(&self)->f64{
+            ((self.real * self.real) + (self.imag*self.imag)).sqrt()
         }
 
     }
@@ -92,17 +101,91 @@ pub mod solution {
         }
     }*/
 
+
     impl TryInto<f64> for ComplexNumber {
 
-        type Error = &'static str;
+        type Error = String;
 
         fn try_into(self) -> Result<f64, Self::Error> {
             if self.imag != 0.0 {
-                return Err("Errore");
+                return Err("Errore".to_string());
+            }
+            else{
+                Ok(self.real)
             }
 
-            Ok(self.real)
         }
     }
 
+
+    impl Into<ComplexNumber> for f64 {
+
+        fn into(self) -> ComplexNumber {
+            ComplexNumber::new(self, 0.0)
+        }
+
+    }
+
+    impl PartialOrd for ComplexNumber {
+        fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+
+            if self.modulus() > other.modulus() {
+                Some(Ordering::Greater)
+            }
+            else if self.modulus() < other.modulus(){
+                Some(Ordering::Less)
+            }
+            else if self.modulus() == other.modulus() {
+                Some(Ordering::Equal)
+            }
+            else{
+                None
+            }
+        }
+
+        fn lt(&self, other: &Self) -> bool {
+            self.modulus() < other.modulus()
+        }
+
+        fn le(&self, other: &Self) -> bool {
+            self.modulus() < other.modulus() || self.modulus().total_cmp(&other.modulus()) == Ordering::Equal
+        }
+
+        fn gt(&self, other: &Self) -> bool {
+            self.modulus() > other.modulus()
+        }
+
+        fn ge(&self, other: &Self) -> bool {
+            self.modulus() > other.modulus() || self.modulus().total_cmp(&other.modulus()) == Ordering::Equal
+        }
+    }
+
+    impl Eq for ComplexNumber {
+
+    }
+
+    impl Ord for ComplexNumber {
+        fn cmp(&self, other: &Self) -> Ordering {
+            self.modulus().total_cmp(&other.modulus())
+        }
+
+    }
+
+    impl AsRef<f64> for ComplexNumber {
+        fn as_ref(&self) -> &f64 {
+            &self.real
+        }
+    }
+
+    impl AsMut<f64> for ComplexNumber {
+        fn as_mut(&mut self) -> &mut f64 {
+            &mut self.real
+        }
+    }
+
+    impl Hash for ComplexNumber {
+        fn hash<H: Hasher>(&self, state: &mut H) {
+            (self.real+self.imag).to_bits().hash(state)
+        }
+    }
 }
