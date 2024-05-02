@@ -4,6 +4,7 @@ pub mod solution {
     use std::cmp::Ordering;
     use std::hash::{Hash, Hasher};
     use std::ops::{Add, AddAssign};
+    use std::error::Error;
 
 
     #[derive(Copy, Clone, Debug, PartialEq)]
