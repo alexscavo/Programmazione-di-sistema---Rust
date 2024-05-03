@@ -19,7 +19,7 @@ pub mod solution {
                 elem_number: 0
             };
 
-            for i in 0..cap{
+            for i in 0..cap {
                 cbuf.buffer.push(T::default());
             }
 
