@@ -22,7 +22,6 @@ pub mod solution {
             for i in 0..cap {
                 cbuf.buffer.push(T::default());
             }
-
             cbuf
         }
 
