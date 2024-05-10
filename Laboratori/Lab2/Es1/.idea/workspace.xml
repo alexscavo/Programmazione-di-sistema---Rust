@@ -8,10 +8,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="234c9195-f691-41d3-bff9-bbeac8a00b44" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Es1.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/build/windows_x86_64_msvc-0a0aacc505b49f69/output" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/build/windows_x86_64_msvc-0a0aacc505b49f69/output" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/deps/clap_derive-0a8e079f1a7e7e59.d" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/deps/clap_derive-0a8e079f1a7e7e59.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/deps/clap_derive-0a8e079f1a7e7e59.dll" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/deps/clap_derive-0a8e079f1a7e7e59.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/deps/clap_derive-0a8e079f1a7e7e59.dll.exp" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/deps/clap_derive-0a8e079f1a7e7e59.dll.exp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/deps/clap_derive-0a8e079f1a7e7e59.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/deps/clap_derive-0a8e079f1a7e7e59.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/deps/proc_macro2-87ee2f924afbe6d4.d" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/deps/proc_macro2-87ee2f924afbe6d4.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/deps/quote-3b0a8667199292c1.d" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/deps/quote-3b0a8667199292c1.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/debug/deps/syn-30f3bf76d5718a19.d" beforeDir="false" afterPath="$PROJECT_DIR$/target/debug/deps/syn-30f3bf76d5718a19.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../es2/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/../es2/src/lib.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../es2/target/.rustc_info.json" beforeDir="false" afterPath="$PROJECT_DIR$/../es2/target/.rustc_info.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../es2/tests/complex_numbers.rs" beforeDir="false" afterPath="$PROJECT_DIR$/../es2/tests/complex_numbers.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,6 +171,8 @@
       <updated>1713509552724</updated>
       <workItem from="1713509554585" duration="4371000" />
       <workItem from="1713516046010" duration="8000" />
+      <workItem from="1714650255501" duration="10000" />
+      <workItem from="1714650278237" duration="9000" />
     </task>
     <servers />
   </component>
