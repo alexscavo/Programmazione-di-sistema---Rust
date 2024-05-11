@@ -25,29 +25,27 @@ pub fn find_sub<'a>(slice: &'a str, token: &str) -> Option<(usize, &'a str)> {
         }
     }
 
-    //for i in 0..slice.len(){
 
-        if slice.as_bytes()[0] == molecule {   //sono arrivato alla prima occorrenza della molecola nella slice
+    if slice.as_bytes()[0] == molecule {   //sono arrivato alla prima occorrenza della molecola nella slice
 
 
-            let mut occ = 1;
+        let mut occ = 1;
 
-            for j in 1..slice.len() {
+        for j in 1..slice.len() {
 
-                if slice.as_bytes()[j] == molecule {
-                    occ = occ + 1;
-                }
-                else{
-                    break;
-                }
+            if slice.as_bytes()[j] == molecule {
+                occ = occ + 1;
             }
-
-            if occ >= min && occ <= max {
-                return Some((0, &slice[0..occ]));
+            else{
+                break;
             }
-
         }
-    //}
+
+        if occ >= min && occ <= max {   // se vengono rispettati i min e max
+            return Some((occ, &slice[0..occ]));      // ritorno: dimensione stringa, stringa
+        }
+
+    }
 
     None
 }
@@ -55,49 +53,77 @@ pub fn find_sub<'a>(slice: &'a str, token: &str) -> Option<(usize, &'a str)> {
 pub fn find_first_sub<'a>(slice:&'a str, seq: &str) ->Option<(usize, &'a str)> {
 
     let patterns = seq.split(",");
-    let mut flag = true;
+    let mut flag = false;
     let mut next_index = 0;
     let mut result_str: String = String::new();
+    let mut first_index = 0;
 
     for pat in patterns {   //per ogni pattern
 
-        let tuple = match find_sub(&slice[next_index..], pat) {
-            Some(t) => t,
-            None => (0usize, "")
-        };
+        for i in next_index..slice.len() {
+            let tuple = match find_sub(&slice[i..], pat) {
+                Some(t) => t,
+                None => (0usize, "")
+            };
 
-
-
-        if tuple.0 == 0 {
-            flag = false;
-            break;
+            if tuple.1 == "" {
+                if flag == true {
+                    return None;
+                }
+                flag = false;
+                continue;
+            }
+            else {
+                flag = true;
+                result_str.push_str(tuple.1);   //inserisco la stringa nella stringa risultato
+                next_index = i + tuple.0;
+                break;
+            }
         }
-        else {
-            result_str.push_str(tuple.1);   //inserisco la stringa nella stringa risultato
-            next_index = tuple.0;
+
+        if flag == false {
+            return None;
         }
     }
 
-    /*if flag == false {
+    first_index = next_index-result_str.len();
 
+    if result_str != "".to_string() {
+        return Some((first_index, &slice[first_index..result_str.len()+first_index]))
     }
-    */
-     None
+
+    None
+
 }
-
-use std::ops::RemAssign;
 
 fn subsequences1<'a>(s: &'a str, seq: &str) -> Vec<(usize, &'a str)> {
 
 
+    let mut return_vec:Vec<(usize, &'a str)> = Vec::new();
+    let mut i = 0;
 
+    while i < s.len() {
 
-    return vec![(5usize, "ciao")]
+        let result = find_first_sub(&s[i..], seq);
+
+        match result {
+            Some(mut t) => {
+                t.0 = t.0 + i;
+                return_vec.push(t); // inserisco la sequenza trovata nel vettore risultato
+                i = t.0;  // incremento la i per selezionare la prossima slice da analizzare
+            },
+            None => break
+        }
+
+        i = i + 1;
+    }
+
+    return_vec
 }
 
 pub fn demo1() {
-    let a = "AACGGTAACC".to_string();
-    let seq = "A1-1,C2-4";
+    let a = "TGAGGCAATGCCA".to_string();
+    let seq = "C1-2,A1-2";
 
     for (off, sub) in subsequences1(&a, seq) {
         println!("Found subsequence at position {}: {}", off, sub);
