@@ -1,9 +1,13 @@
-use crate::es0301::demo1;
+use crate::es0301::{demo1, demo2};
 
 mod es0301;
 
 fn main() {
+    println!("---------------DEMO 1---------------/");
     demo1();
+
+    println!("---------------DEMO 2---------------/");
+    demo2();
 }
 
 
