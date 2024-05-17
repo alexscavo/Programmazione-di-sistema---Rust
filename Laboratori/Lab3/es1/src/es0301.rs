@@ -44,6 +44,9 @@ pub fn find_sub<'a>(slice: &'a str, token: &str) -> Option<(usize, &'a str)> {
         if occ >= min && occ <= max {   // se vengono rispettati i min e max
             return Some((occ, &slice[0..occ]));      // ritorno: dimensione stringa, stringa
         }
+        else if occ >= min {
+            return Some((max, &slice[0..max]));
+        }
 
     }
 
@@ -212,6 +215,7 @@ pub fn demo4() {
         println!("Found subsequence at position {}: {}", pos, sub);
     });
 }
+*/
 
 // Now let's define a struct SimpleDNAIter (add the required lifetimes), memorizing a DNA sequence and the subsequence to search
 // Then we add a next() method to the struct, which will return the next subsequence found in the DNA sequence after each call
@@ -221,23 +225,31 @@ pub fn demo4() {
 // This approach is similar to the previous one, but it's more flexible and it can be used in more complex scenarios. For example you may interrupt it
 // at any time and resume it later
 
-struct SimpleDNAIter<'a> {
-    s: &str,
-    seq: &str,
+struct SimpleDNAIter<'a, 'b> {
+    s: &'a str,
+    seq: &'b str,
+    indice: usize
 }
 
-impl SimpleDNAIter {
-    pub fn new(s: &str, seq: &str) -> Self {
-        SimpleDNAIter { s: s, seq: seq }
+impl<'a, 'b> SimpleDNAIter<'a, 'b> {
+    pub fn new(s: &'a str, seq: &'b str) -> Self {
+        SimpleDNAIter { s, seq, indice: 0 }
     }
 
-    pub fn next(&self) -> Option<(usize, &str)> {
-        unimplemented!()
+    pub fn next(&mut self) -> Option<(usize, &str)> {
+        return match find_first_sub(&self.s[self.indice..], self.seq) {
+            Some(t) => {
+                let old_index = self.indice + t.0;
+                self.indice = old_index + t.1.len();
+                return Some((old_index, t.1))
+            },
+            None => None
+        }
     }
 }
 
-fn demo_SimpleDNAIter() {
-    let dna_iter = SimpleDNAIter::new("ACGTACGTACGTACGT", "A1-1,C1-1");
+pub fn demo_SimpleDNAIter() {
+    let mut dna_iter = SimpleDNAIter::new("ACGTACGTACGTACGT", "A1-1,C1-1");
 
     while let Some((pos, subseq)) = dna_iter.next() {
         println!("Found subsequence at position {}: {}", pos, subseq);
@@ -245,36 +257,49 @@ fn demo_SimpleDNAIter() {
     }
 }
 
+
 // finally we want to implement a real iterator, so that it can be used in a for loop and it may be combined we all the most common iterator methods
 // The struct DNAIter is already defined, you have to implement the Iterator trait for it and add lifetimes
-struct DNAIter<> {
-    s: &str,
-    seq: &str,
+struct DNAIter<'a, 'b>{
+    s: &'a str,
+    seq: &'b str,
+    items: Vec< (usize, &'a str)>,
+    stato: usize
 }
 
-impl DNAIter {
-    pub fn new(s: &str, seq: &str) -> DNAIter {
-        DNAIter {
-            s: s,
-            seq: seq,
+impl<'a, 'b> DNAIter<'a, 'b> {
+    pub fn new(s: &'a str, seq: &'b str) -> DNAIter<'a, 'b> {
+        let items=subsequences1(s, seq);
+        let stato=0;
+        DNAIter {s, seq, items, stato}
+    }
+
+    fn update_stato(&mut self){
+        self.stato +=1;
+    }
+}
+
+impl<'a, 'b> Iterator for DNAIter<'a, 'b>{
+    type Item = (usize, &'a str);
+
+    fn next(&mut self) -> Option<Self::Item> {
+        if(self.items.len()==0 || self.stato>=self.items.len()){
+            None
+        }
+        else{
+            let ris = Some(self.items[self.stato]);
+            self.update_stato();
+            ris
         }
     }
 }
 
-impl Iterator for DNAIter {
-    type Item = (usize, &str);
-
-    fn next(&mut self) -> Option<Self::Item> {
-        unimplemented!()
-    }
-}
-
-fn demo_dna_iter() {
+pub fn demo_dna_iter() {
     let dna_iter = DNAIter::new("ACGTACGTAAACCCGTACGT", "A1-3,C1-2");
 
     // now you can combine it with all the iterator modifiers!!!
     dna_iter
-        .filter(|(pos, sub)| sub.len() >= 5)
+        .filter(|(pos, sub)| sub.len() >= 4)
         .for_each(|(pos, sub)| {
             println!(
                 "Found subsequence at least long 5 at position {}: {}",
@@ -282,6 +307,8 @@ fn demo_dna_iter() {
             )
         });
 }
+
+/*
 
 // now let's return an iterator without defining a struct, just using a closure
 // the std lib of rust support you with the std::from_fn() function
