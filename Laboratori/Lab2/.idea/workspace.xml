@@ -5,9 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d96b1613-e76a-4701-ac6a-a876204d9ccc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Es1/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Es1/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Es1/Cargo.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/es2/target/.rustc_info.json" beforeDir="false" afterPath="$PROJECT_DIR$/es2/target/.rustc_info.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab4/es1/src/es0401.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab4/es1/src/es0402_input.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab1/prove/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab1/prove/src/main.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab1/prove/target/.rustc_info.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab1/prove/target/.rustc_info.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab1/prove/target/debug/.fingerprint/prove-3f5e84e63d7c310c/output-bin-prove" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab1/prove/target/debug/deps/prove.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab1/prove/target/debug/deps/prove.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab1/prove/target/debug/deps/prove.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab1/prove/target/debug/deps/prove.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab1/prove/target/debug/incremental/prove-3489b4rntcnno/s-gv051y2rfg-f42wgh-2ha9vp45jfao67ycq67vo8ubj/1hg21r8jfyklni2d.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab1/prove/target/debug/incremental/prove-3489b4rntcnno/s-gv051y2rfg-f42wgh-2ha9vp45jfao67ycq67vo8ubj/28a4tjky69vfk5ld.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab1/prove/target/debug/incremental/prove-3489b4rntcnno/s-gv051y2rfg-f42wgh-2ha9vp45jfao67ycq67vo8ubj/2a2kgld1x97vhz1n.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab1/prove/target/debug/incremental/prove-3489b4rntcnno/s-gv051y2rfg-f42wgh-2ha9vp45jfao67ycq67vo8ubj/2gyfluc3vi30jsz3.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab1/prove/target/debug/incremental/prove-3489b4rntcnno/s-gv051y2rfg-f42wgh-2ha9vp45jfao67ycq67vo8ubj/3b3y5ckdc37f4gda.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab1/prove/target/debug/incremental/prove-3489b4rntcnno/s-gv051y2rfg-f42wgh-2ha9vp45jfao67ycq67vo8ubj/3e4mlgflstrtn0dv.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab1/prove/target/debug/incremental/prove-3489b4rntcnno/s-gv051y2rfg-f42wgh-2ha9vp45jfao67ycq67vo8ubj/3ijzr3h9v4qnu374.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab1/prove/target/debug/incremental/prove-3489b4rntcnno/s-gv051y2rfg-f42wgh-2ha9vp45jfao67ycq67vo8ubj/3qil27r4r7vsfzvs.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab1/prove/target/debug/incremental/prove-3489b4rntcnno/s-gv051y2rfg-f42wgh-2ha9vp45jfao67ycq67vo8ubj/416pksul5ckf4rfn.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab1/prove/target/debug/incremental/prove-3489b4rntcnno/s-gv051y2rfg-f42wgh-2ha9vp45jfao67ycq67vo8ubj/4i2igchfl2euccee.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab1/prove/target/debug/incremental/prove-3489b4rntcnno/s-gv051y2rfg-f42wgh-2ha9vp45jfao67ycq67vo8ubj/4tw411fu9uo7u7z1.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab1/prove/target/debug/incremental/prove-3489b4rntcnno/s-gv051y2rfg-f42wgh-2ha9vp45jfao67ycq67vo8ubj/dep-graph.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab1/prove/target/debug/incremental/prove-3489b4rntcnno/s-gv051y2rfg-f42wgh-2ha9vp45jfao67ycq67vo8ubj/l3sp3pfys53b4ns.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab1/prove/target/debug/incremental/prove-3489b4rntcnno/s-gv051y2rfg-f42wgh-2ha9vp45jfao67ycq67vo8ubj/query-cache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab1/prove/target/debug/incremental/prove-3489b4rntcnno/s-gv051y2rfg-f42wgh-2ha9vp45jfao67ycq67vo8ubj/vedlcpedowcxqfk.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab1/prove/target/debug/incremental/prove-3489b4rntcnno/s-gv051y2rfg-f42wgh-2ha9vp45jfao67ycq67vo8ubj/vl77w06lxdi7yw8.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab1/prove/target/debug/incremental/prove-3489b4rntcnno/s-gv051y2rfg-f42wgh-2ha9vp45jfao67ycq67vo8ubj/work-products.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab1/prove/target/debug/incremental/prove-3489b4rntcnno/s-gv051y2rfg-f42wgh.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab1/prove/target/debug/prove.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab1/prove/target/debug/prove.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab1/prove/target/debug/prove.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab1/prove/target/debug/prove.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab3/es1/target/.rustc_info.json" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab3/es1/target/.rustc_info.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,9 +46,9 @@
   <component name="MacroExpansionManager">
     <option name="directoryName" value="qdtx4ixm" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2flvKEcpSpiIdSCdU7ZD9qHebIi" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -33,8 +59,10 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.rust.reset.selective.auto.import": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Utente/Desktop/poli/materie/Programmazione di Sistema/Rust/Laboratori/Lab2/es2",
+    "git-widget-placeholder": "Lab4",
+    "last_opened_file_path": "C:/Users/Utente/Desktop/poli/materie/Programmazione di Sistema/Rust/Laboratori/Lab2",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "org.rust.cargo.project.model.PROJECT_DISCOVERY": "true",
     "org.rust.cargo.project.model.impl.CargoExternalSystemProjectAware.subscribe.first.balloon": "",
@@ -53,6 +81,7 @@
       <option name="presentableId" value="Default" />
       <updated>1714388412935</updated>
       <workItem from="1714388413980" duration="71000" />
+      <workItem from="1716389556793" duration="649000" />
     </task>
     <servers />
   </component>
