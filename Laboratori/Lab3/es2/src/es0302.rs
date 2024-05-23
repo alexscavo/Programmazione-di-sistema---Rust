@@ -45,7 +45,6 @@ impl Filesystem {
         unimplemented!()
     }
 
-
     // create a new filesystem reading from disk all the structure under the given path
     // in the file content just write the firt 1k bytes of the file
     // return the root node of the filesystem

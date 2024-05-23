@@ -1,13 +1,22 @@
-use crate::es0301::{demo1, demo2};
+use crate::es0301::{demo1, demo2, demo_SimpleDNAIter, demo_dna_iter};
 
 mod es0301;
 
 fn main() {
+    /*
     println!("---------------DEMO 1---------------/");
     demo1();
 
     println!("---------------DEMO 2---------------/");
     demo2();
+
+
+    println!("----------------ITER 1--------------/");
+    demo_SimpleDNAIter();
+     */
+
+    println!("----------------ITER 2--------------");
+    demo_dna_iter();
 }
 
 
