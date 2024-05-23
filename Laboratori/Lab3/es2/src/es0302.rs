@@ -121,7 +121,6 @@ fn demo() {
         fs.create_file(format!("/dir{}", i).as_str(), "file1").unwrap();
     }
 
-
     println!("find /child2");
     if let Ok(res) = fs.get("/dir2/child1") {
         match res {
