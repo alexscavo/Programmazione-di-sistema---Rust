@@ -11,7 +11,7 @@ pub mod List1 {
         pub head: ListLink<T>,
     }
 
-    impl<T: Default + Clone> List<T> {
+    impl<T: Clone> List<T> {
         pub fn new() -> Self {
 
             let head = ListLink::Nil;
@@ -100,6 +100,8 @@ pub mod List1 {
 
 
 pub mod List2 {
+    use std::mem;
+
 
     pub struct Node<T> {
         elem: T,
@@ -114,12 +116,87 @@ pub mod List2 {
         tail: NodeLink<T>
     }
 
+
+
     // for this implementattion, since we are using option, take a look at the take method in Option<T>.
     // It allows to move the value of the option into another option and replace it with None
     // let mut a = Some(5);
     // let b = a.take(); // a is now None and b is Some(5)
     impl<T> List<T> {
-        // same methods as List1
+        pub fn new() -> Self {
+
+            let head = None;
+            let tail = None;
+
+            List { head, tail }
+        }
+
+        // insert a new element at the beginning of the list
+        pub fn push_head(&mut self, elem: T) {
+
+            // creo il nuovo nodo
+            let mut old_head = self.head.take();
+
+            //creo il nuovo nodo
+            let new_node = Node { elem, next: old_head.clone() , prev: None };  // next del nuovo nodo e' la vecchia head, il prev e' null
+            let new_node_link = Some(Box::new(new_node.clone()));
+
+            match old_head {
+                Some(mut head) => head.prev = new_node_link,    // se la testa della coda non era null, la faccio puntare al nuovo nodo
+                None => ()
+            }
+
+            self.head = Some(Box::new(new_node));
+        }
+
+        /*
+        pub(crate) fn pop(&mut self) -> Option<T> {
+
+            let old_node = mem::replace(&mut self.head, ListLink::Nil);
+
+            let old_value: T;
+            let old_next: ListLink<T>;
+
+            match old_node {
+                ListLink::Cons(elem, next) => {
+                    old_value = elem;
+                    old_next = *next;
+                    self.head = old_next;
+                    Some(old_value)
+                },
+                ListLink::Nil => return None
+            }
+        }
+
+        // return a referece to the first element of the list
+        pub fn peek(&self) -> Option<&T> {
+
+            match &self.head {
+                ListLink::Cons(elem, next) => Some(elem),
+                ListLink::Nil => None
+            }
+        }
+
+        // uncomment after having implemented the ListIter struct
+        // return an interator over the list values
+        //fn iter(&self) -> ListIter<T> {
+        //    unimplemented!()
+        //}
+
+        // take the first n elements of the list and return a new list with them
+        pub fn take(&mut self, n: usize) -> crate::es0401::List1::List<T> {
+            let mut new_list = crate::es0401::List1::List { head: ListLink::Nil };
+            let mut current = &self.head;
+            for _ in 0..n {
+                if let ListLink::Cons(value, next) = current {
+                    new_list.push(value.clone());
+                    current = next;
+                } else {
+                    break;
+                }
+            }
+            new_list
+        } */
     }
 }
 
