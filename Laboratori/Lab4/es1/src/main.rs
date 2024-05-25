@@ -28,5 +28,13 @@ fn main() {
         None => println!("Nulla da rimuovere")
     }
 
+    list1.push(10);
+    list1.push(5);
+    list1.push(13);
+    list1.push(20);
+
+    println!("peek = {:?}", list1.peek())
+
+
 
 }

@@ -11,7 +11,7 @@ pub mod List1 {
         pub head: ListLink<T>,
     }
 
-    impl<T: Default> List<T> {
+    impl<T: Default + Clone> List<T> {
         pub fn new() -> Self {
 
             let head = ListLink::Nil;
@@ -45,21 +45,15 @@ pub mod List1 {
                 },
                 ListLink::Nil => return None
             }
-
-
-
-            /*
-            Some(match old_node {
-                ListLink::Cons(elem, next) => elem,
-                ListLink::Nil => T::default()
-            })
-            */
-
         }
 
         // return a referece to the first element of the list
         pub fn peek(&self) -> Option<&T> {
-            unimplemented!()
+
+            match &self.head {
+                ListLink::Cons(elem, next) => Some(elem),
+                ListLink::Nil => None
+            }
         }
 
         // uncomment after having implemented the ListIter struct
@@ -70,9 +64,18 @@ pub mod List1 {
 
         // take the first n elements of the list and return a new list with them
         pub fn take(&mut self, n: usize) -> List<T> {
-            unimplemented!()
+            let mut new_list = List { head: ListLink::Nil };
+            let mut current = &self.head;
+            for _ in 0..n {
+                if let ListLink::Cons(value, next) = current {
+                    new_list.push(value.clone());
+                    current = next;
+                } else {
+                    break;
+                }
+            }
+            new_list
         }
-
     }
 
 
