@@ -100,20 +100,22 @@ pub mod List1 {
 
 
 pub mod List2 {
+    use std::cell::RefCell;
     use std::mem;
+    use std::rc::Rc;
 
 
     pub struct Node<T> {
-        elem: T,
-        next: NodeLink<T>,
-        prev: NodeLink<T>
+        pub elem: T,
+        pub next: NodeLink<T>,
+        pub prev: NodeLink<T>
     }
 
-    type NodeLink<T> = Option<Box<Node<T>>>;
+    type NodeLink<T> = Option<Rc<RefCell<Node<T>>>>;
 
     pub struct List<T> {
-        head: NodeLink<T>,
-        tail: NodeLink<T>
+        pub head: NodeLink<T>,
+        pub tail: NodeLink<T>
     }
 
 
@@ -135,20 +137,56 @@ pub mod List2 {
         pub fn push_head(&mut self, elem: T) {
 
             // creo il nuovo nodo
-            let mut old_head = self.head.take();
+            let new_node = Node { elem, next: self.head.clone(), prev: None };
 
-            //creo il nuovo nodo
-            let new_node = Node { elem, next: old_head.clone() , prev: None };  // next del nuovo nodo e' la vecchia head, il prev e' null
-            let new_node_link = Some(Box::new(new_node.clone()));
+            let new_nodelink = Some(Rc::new(RefCell::new(new_node)));   // creo il nodeLink
 
-            match old_head {
-                Some(mut head) => head.prev = new_node_link,    // se la testa della coda non era null, la faccio puntare al nuovo nodo
-                None => ()
+            match &self.head {
+                Some(old_head) => old_head.borrow_mut().prev = new_nodelink.clone(),
+                None => (),
             }
 
-            self.head = Some(Box::new(new_node));
+            self.head = new_nodelink.clone();
+
+            if self.tail.is_none() {
+                self.tail = new_nodelink.clone();
+            }
         }
 
+        pub fn push_tail(&mut self, elem: T) {
+
+            let new_node = Node { elem, next: None, prev: self.tail.clone() };
+            let new_nodelink = Some(Rc::new(RefCell::new(new_node)));
+
+            match &self.tail {
+                Some(old_tail) => old_tail.borrow_mut().next = new_nodelink.clone(),
+                None => (),
+            }
+
+            self.tail = new_nodelink.clone();
+
+            if self.head.is_none() {
+                self.head = new_nodelink.clone();
+            }
+        }
+
+        pub fn pop_head(&mut self) -> Option<T> {
+
+            match self.head.take() {
+                Some(head) => {
+                    match &head.borrow().next {
+                        Some(next) => next.borrow_mut().prev = None,
+                        None => ()
+                    }
+
+                    self.head = head.borrow_mut().next.take();
+
+                    return Some(head.into_inner().elem)
+                },
+                None => return None
+            }
+
+        }
         /*
         pub(crate) fn pop(&mut self) -> Option<T> {
 

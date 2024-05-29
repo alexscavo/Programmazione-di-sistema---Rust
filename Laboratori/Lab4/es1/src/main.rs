@@ -1,4 +1,4 @@
-use crate::es0401::{List1};
+use crate::es0401::{List1, List2};
 use crate::es0401::List1::ListLink::Cons;
 use crate::es0401::List1::ListLink::Nil;
 
@@ -33,8 +33,17 @@ fn main() {
     list1.push(13);
     list1.push(20);
 
-    println!("peek = {:?}", list1.peek())
+    println!("peek = {:?}", list1.peek());
 
+    println!("---------------------------");
+    let mut list2 = List2::List::<i32>::new();
 
+    list2.push_head(5);
+    list2.push_head(10);
+    list2.push_head(3);
+
+    println!("{:?}", list2.pop_head());
+    println!("{:?}", list2.pop_head());
+    println!("{:?}", list2.pop_head());
 
 }
