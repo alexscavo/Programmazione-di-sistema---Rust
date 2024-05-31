@@ -7,7 +7,10 @@
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f40c930f-ac44-401b-9a9c-5d2bd95c0d4b" name="Changes" comment="" />
+    <list default="true" id="f40c930f-ac44-401b-9a9c-5d2bd95c0d4b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/.rustc_info.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/.rustc_info.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,20 +30,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.rust.reset.selective.auto.import&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Utente/Desktop/poli/materie/Programmazione di Sistema/Rust/Laboratori/Lab3/es2/src&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;org.rust.cargo.project.model.PROJECT_DISCOVERY&quot;: &quot;true&quot;,
-    &quot;org.rust.disableDetachedFileInspectionC:/Users/Utente/Desktop/poli/materie/Programmazione di Sistema/Rust/Laboratori/Lab3/es2/src/es0302.rs&quot;: &quot;true&quot;,
-    &quot;org.rust.first.attach.projects.stats&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.rust.reset.selective.auto.import": "true",
+    "git-widget-placeholder": "Lab4",
+    "last_opened_file_path": "C:/Users/Utente/Desktop/poli/materie/Programmazione di Sistema/Rust/Laboratori/Lab4/es1",
+    "nodejs_package_manager_path": "npm",
+    "org.rust.cargo.project.model.PROJECT_DISCOVERY": "true",
+    "org.rust.disableDetachedFileInspectionC:/Users/Utente/Desktop/poli/materie/Programmazione di Sistema/Rust/Laboratori/Lab3/es2/src/es0302.rs": "true",
+    "org.rust.first.attach.projects.stats": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Utente\Desktop\poli\materie\Programmazione di Sistema\Rust\Laboratori\Lab3\es2\src" />
@@ -78,6 +81,7 @@
       <updated>1715790593806</updated>
       <workItem from="1715790595475" duration="278000" />
       <workItem from="1715929279992" duration="13000" />
+      <workItem from="1716457868877" duration="59000" />
     </task>
     <servers />
   </component>
